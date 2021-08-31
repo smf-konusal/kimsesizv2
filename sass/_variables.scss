@@ -1,0 +1,92 @@
+
+
+$color-default:#e8e8e8;
+$color-primary:#d3d3d3;
+$color-secondary:#b3b2b2;
+$color-base:hsla(0, 0, 0, 0.6);
+
+$color-default-lighte : lighte(var(--color-default), 4.2);
+$color-default-satur : satur(var(--color-default), 0.6);
+
+$color-primary-lighte : lighte(var(--color-primary), 4.2);
+$color-primary-satur : satur(var(--color-primary), 0.6);
+
+$color-secondary-lighte : lighte(var(--color-secondary), 2.7);
+$color-secondary-satur : satur(var(--color-secondary), 1.2);
+
+$kimsesiz_color:#0d0d0d;
+
+$kimsesiz_color1: lighte(var(--color-kimsesiz), 1.7);
+$kimsesiz_color2: lighte(var(--color-kimsesiz), 2.9);
+$kimsesiz_color3: lighte(var(--color-kimsesiz), 3.9);
+
+$kimsesiz_color1_dark: lighte(var(--color-kimsesiz), 1.4);
+$kimsesiz_color2_dark: lighte(var(--color-kimsesiz), 2.1);
+$kimsesiz_color3_dark: lighte(var(--color-kimsesiz), 3.0);
+
+$kimsesiz_color_ex:#E95E19;
+
+$kimsesiz_color_ex1:lighte(var(--color-kimsesiz_ex), 1.4);
+$kimsesiz_color_ex2:lighte(var(--color-kimsesiz_ex), 1.2);
+$kimsesiz_color_ex3:lighte(var(--color-kimsesiz_ex), 1.1);
+$kimsesiz_color_ex4:lighte(var(--color-kimsesiz_ex), 1.5);
+
+:root{
+--color-base: #{$color-base};
+@include defineColorHSL(--color-default, $color-default);
+--color-default-lighte : #{$color-default-lighte};
+--color-default-satur : #{$color-default-satur};
+@include defineColorHSL(--color-primary, $color-primary);
+--color-primary-lighte : #{$color-primary-lighte};
+--color-primary-satur : #{$color-primary-satur};
+@include defineColorHSL(--color-secondary, $color-secondary);
+--color-secondary-lighte : #{$color-secondary-lighte};
+--color-secondary-satur : #{$color-secondary-satur};
+
+@include defineColorHSL(--color-kimsesiz, $kimsesiz_color);
+--color-kimsesiz1: #{$kimsesiz_color1};
+--color-kimsesiz2: #{$kimsesiz_color2};
+--color-kimsesiz3: #{$kimsesiz_color3};
+
+@include defineColorHSL(--color-kimsesiz_ex, $kimsesiz_color_ex);
+--color-kimsesiz-ex1: #{$kimsesiz_color_ex1};
+--color-kimsesiz-ex2: #{$kimsesiz_color_ex2};
+--color-kimsesiz-ex3: #{$kimsesiz_color_ex3};
+--color-kimsesiz-ex4: #{$kimsesiz_color_ex4};
+}
+
+.dark-mode{
+    @include defineColorHSL(--color-default, $color-secondary);
+    --color-default-lighte : #{$color-secondary-satur};
+    --color-default-satur : #{$color-secondary-lighte};
+    @include defineColorHSL(--color-primary, $color-primary);
+    --color-primary-lighte : #{$color-primary-satur};
+    --color-primary-satur : #{$color-primary-lighte};
+    @include defineColorHSL(--color-secondary, $color-default);
+    --color-secondary-lighte : #{$color-default-satur};
+    --color-secondary-satur : #{$color-default-lighte};
+
+    @include defineColorHSL(--color-kimsesiz, $kimsesiz_color);
+    --color-kimsesiz1: #{$kimsesiz_color1_dark};
+    --color-kimsesiz2: #{$kimsesiz_color2_dark};
+    --color-kimsesiz3: #{$kimsesiz_color3_dark};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    @include defineColorHSL(--color-default, $color-secondary);
+    --color-default-lighte : #{$color-secondary-satur};
+    --color-default-satur : #{$color-secondary-lighte};
+    @include defineColorHSL(--color-primary, $color-primary);
+    --color-primary-lighte : #{$color-primary-satur};
+    --color-primary-satur : #{$color-primary-lighte};
+    @include defineColorHSL(--color-secondary, $color-default);
+    --color-secondary-lighte : #{$color-default-satur};
+    --color-secondary-satur : #{$color-default-lighte};
+
+    @include defineColorHSL(--color-kimsesiz, $kimsesiz_color);
+    --color-kimsesiz1: #{$kimsesiz_color1_dark};
+    --color-kimsesiz2: #{$kimsesiz_color2_dark};
+    --color-kimsesiz3: #{$kimsesiz_color3_dark};
+  }
+}
